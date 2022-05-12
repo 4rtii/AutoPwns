@@ -1,2 +1,5 @@
 # AutoPwns
-CTF's Autopwns
+CTF's AutoPwns
+  - Hack The Box
+    - GoodGames
+
