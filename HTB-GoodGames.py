@@ -16,6 +16,13 @@ cyan = "\033[36m"
 white = "\033[37m"
 gray = "\033[90m"
 
+#### NOTAS -> Hace falta agregar 'goodgames.htb' y 'internal-administration.goodgames.htb' al /etc/hosts ####
+
+# python3 HTB-GoodGames.py LHOST LPORT 
+if len(sys.argv) != 3:
+    print("\n[!] Uso: python3 " + sys.argv[0] + " <LHOST> <LPORT>\n")
+    sys.exit(1)
+
 def def_handler(sig, frame):
     print(red + "\n\n[!] Saliendo...\n\n" + reset)
     sys.exit(1)
@@ -27,8 +34,8 @@ signal.signal(signal.SIGINT, def_handler)
 main_url = "http://goodgames.htb/login"
 ssti_url = "http://internal-administration.goodgames.htb/settings"
 
-LHOST = "10.10.16.5"    # CHANGE ME
-LPORT = "443"           # CHANGE ME
+LHOST = sys.argv[1]     # i.e. 10.10.14.17
+LPORT = sys.argv[2]     # i.e. 443
 
 
 # SQLi -> Obtener nombres de bases de datos
